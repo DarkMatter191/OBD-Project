@@ -1,0 +1,20 @@
+#!/Users/maxcohen/element/venvs/venv1/bin/python
+
+from openai import OpenAI
+
+print("Hello World")
+
+client = OpenAI()
+
+completion = client.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {
+            "role": "user",
+            "content": "please say hello world"
+        }
+    ]
+)
+
+print(completion.choices[0].message)
